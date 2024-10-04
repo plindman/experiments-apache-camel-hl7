@@ -16,6 +16,8 @@ Requirements:
 ```bash
 .
 project/
+├── output/
+│   └── observation-[timestamp].hl7 # Output messages
 ├── src/
 │   └── main/
 │       ├── java/
@@ -43,4 +45,12 @@ chmod +x init.sh
 cd project
 docker build -t camel-hl7-simulator .
 docker run -v $(pwd)/output:/app/output camel-hl7-simulator
+```
+
+## Output sample
+
+```json
+MSH|^~\&|||||20241004083550.079+0000||ORU^R01^ORU_R01|1|P|2.4
+OBR|
+OBX|1|NM|8310-5^Body temperature^LN||12|Cel^Celsius||||||||20241004083550
 ```
