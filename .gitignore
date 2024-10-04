@@ -1,0 +1,2 @@
+/project/output/*                                   # Ignore everything in the output/ folder
+!/project/output/observation-20241004091150.hl7     # Except the the sample hl7 file
