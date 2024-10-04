@@ -15,8 +15,16 @@ public class ObservationSimulator extends RouteBuilder {
     public void configure() throws Exception {
         // from("quartz://observationTimer?cron=0 * * * * ?")
         from("quartz://observationTimer?cron=0/10+*+*+*+*+?")
-            .setBody(simple("${random(0, 18) / 10 + 36.5}")) // Random value between 36.5 and 38.2
+            // .setBody(simple("${random(365, 382).doubleValue / 10.0}")) // Random value between 36.5 and 38.2
             // .setBody(simple("${random(100,200)}"))
+            .process(exchange -> {
+                double min = 36.5;
+                double max = 38.2;
+                double randomValue = min + (Math.random() * (max - min));
+                String formattedValue = String.format("%.1f", randomValue);
+                exchange.getIn().setBody(formattedValue);                
+            })
+            .to("log:body?showAll=true") // Log the body after setting it
             .bean(HL7Converter.class, "convertToHL7")
             .to("file:output?fileName=observation-${date:now:yyyyMMddHHmmss}.hl7");
     }
