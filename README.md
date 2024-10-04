@@ -42,6 +42,31 @@ OBR|
 OBX|1|NM|8310-5^Body temperature^LN||37.2|Cel^Celsius||||||||20241004083550
 ```
 
+```json
+{
+  "resourceType": "Observation",
+  "id": "observation-example",
+  "status": "final",
+  "code": {
+    "coding": [ {
+      "system": "http://loinc.org",
+      "code": "8310-5",
+      "display": "Body Temperature"
+    } ]
+  },
+  "subject": {
+    "reference": "Patient/123456"
+  },
+  "effectiveDateTime": "2020-10-05T10:30:00Z",
+  "valueQuantity": {
+    "value": 37.0,
+    "unit": "C",
+    "system": "http://unitsofmeasure.org",
+    "code": "Cel"
+  }
+}
+```
+
 ## Build and run the experiment
 
 ```bash
@@ -55,3 +80,4 @@ cd project
 docker build -t camel-hl7-simulator .
 docker run -v $(pwd)/output:/app/output camel-hl7-simulator
 ```
+
