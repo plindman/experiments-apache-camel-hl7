@@ -52,5 +52,5 @@ docker run -v $(pwd)/output:/app/output camel-hl7-simulator
 ```json
 MSH|^~\&|||||20241004083550.079+0000||ORU^R01^ORU_R01|1|P|2.4
 OBR|
-OBX|1|NM|8310-5^Body temperature^LN||12|Cel^Celsius||||||||20241004083550
+OBX|1|NM|8310-5^Body temperature^LN||37.2|Cel^Celsius||||||||20241004083550
 ```
