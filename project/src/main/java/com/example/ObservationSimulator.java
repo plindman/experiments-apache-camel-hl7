@@ -15,7 +15,7 @@ public class ObservationSimulator extends RouteBuilder {
     public void configure() throws Exception {
         // from("quartz://observationTimer?cron=0 * * * * ?")
         from("quartz://observationTimer?cron=0/10+*+*+*+*+?")
-            .setBody(simple("${math(36.5 + (2.0 * random(0, 36)) / 10)}"))        
+            .setBody(simple("${random(0, 18) / 10 + 36.5}")) // Random value between 36.5 and 38.2
             // .setBody(simple("${random(100,200)}"))
             .bean(HL7Converter.class, "convertToHL7")
             .to("file:output?fileName=observation-${date:now:yyyyMMddHHmmss}.hl7");
