@@ -1,6 +1,10 @@
 FROM maven:3.8.4-openjdk-11-slim AS build
 WORKDIR /app
 COPY pom.xml .
+
+# Download dependencies (this step will be cached as long as pom.xml doesn't change)
+RUN mvn dependency:go-offline -B
+
 COPY src ./src
 RUN mvn clean package
 
