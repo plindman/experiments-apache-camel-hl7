@@ -9,9 +9,7 @@ Requirements:
 - Camel Log Component (for output)
 - Docker (optional for deployment)
 
-##
-
-# Project Folder Structure
+### Project Folder Structure
 
 ```bash
 .
@@ -23,8 +21,8 @@ project/
 │       ├── java/
 │       │   └── com/
 │       │       └── example/
-│       │           ├── ObservationSimulator.java
-│       │           └── HL7Converter.java
+│       │           ├── ObservationSimulator.java 
+│       │           └── HL7Converter.java # Sample data converter
 │       └── resources/
 │           └── application.properties
 ├── pom.xml
@@ -32,25 +30,28 @@ project/
 - init.sh # Run once to create all the folders and files
 ```
 
-Running init.sh to create folders and main files
+## Code
 
-```bash
-chmod +x init.sh
-./init.sh
-```
+The most interesting file is [HL7Converter.java](src/main/java/com/example/HL7Converter.java). It has the code to convert the value to HL7 V2 message.
 
-## Running the experiment
-
-```bash
-cd project
-docker build -t camel-hl7-simulator .
-docker run -v $(pwd)/output:/app/output camel-hl7-simulator
-```
-
-## Output sample
+### Output sample
 
 ```json
 MSH|^~\&|||||20241004083550.079+0000||ORU^R01^ORU_R01|1|P|2.4
 OBR|
 OBX|1|NM|8310-5^Body temperature^LN||37.2|Cel^Celsius||||||||20241004083550
+```
+
+## Build and run the experiment
+
+```bash
+# Run init.sh once to make sure you have all folders and main files
+chmod +x init.sh
+./init.sh
+```
+
+```bash
+cd project
+docker build -t camel-hl7-simulator .
+docker run -v $(pwd)/output:/app/output camel-hl7-simulator
 ```
