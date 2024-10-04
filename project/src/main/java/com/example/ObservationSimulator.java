@@ -13,10 +13,7 @@ public class ObservationSimulator extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        // from("quartz://observationTimer?cron=0 * * * * ?")
         from("quartz://observationTimer?cron=0/10+*+*+*+*+?")
-            // .setBody(simple("${random(365, 382).doubleValue / 10.0}")) // Random value between 36.5 and 38.2
-            // .setBody(simple("${random(100,200)}"))
             .process(exchange -> {
                 double min = 36.5;
                 double max = 38.2;
@@ -25,7 +22,15 @@ public class ObservationSimulator extends RouteBuilder {
                 exchange.getIn().setBody(formattedValue);                
             })
             .to("log:body?showAll=true") // Log the body after setting it
-            .bean(HL7Converter.class, "convertToHL7")
-            .to("file:output?fileName=observation-${date:now:yyyyMMddHHmmss}.hl7");
+            .multicast()
+                .to("direct:hl7v2", "direct:fhir");
+
+        from("direct:hl7v2")
+            .bean(HL7V2Converter.class, "convertToHL7")
+            .to("file:output?fileName=observation-hl7v2-${date:now:yyyyMMddHHmmss}.hl7");
+
+        from("direct:fhir")
+            .bean(HL7FHIRConverter.class, "convertToFHIR")
+            .to("file:output?fileName=observation-fhir-${date:now:yyyyMMddHHmmss}.json");
     }
 }

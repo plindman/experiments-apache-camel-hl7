@@ -51,6 +51,16 @@
             <artifactId>hapi-structures-v24</artifactId>
             <version>${hapi.version}</version>
         </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-base</artifactId>
+            <version>5.7.0</version>
+        </dependency>        
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-structures-r4</artifactId>
+            <version>5.7.0</version>
+        </dependency>
     </dependencies>
 
     <build>
