@@ -12,7 +12,7 @@ import ca.uhn.hl7v2.parser.Parser;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class HL7Converter {
+public class HL7V2Converter {
 
     public static String convertToHL7(String bodyTemperature) throws Exception {
         HapiContext context = new DefaultHapiContext();

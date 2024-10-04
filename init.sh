@@ -12,7 +12,8 @@ mkdir -p src/main/resources
 
 # Create empty Java files
 touch src/main/java/com/example/ObservationSimulator.java
-touch src/main/java/com/example/HL7Converter.java
+touch src/main/java/com/example/HL7V2Converter.java
+touch src/main/java/com/example/HL7FHIRConverter.java
 
 # Create empty resources file
 touch src/main/resources/application.properties
