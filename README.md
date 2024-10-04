@@ -27,7 +27,7 @@ project/
 │           └── application.properties
 ├── pom.xml
 └── Dockerfile
-- init.sh # Create the folders and files
+- init.sh # Run once to create all the folders and files
 ```
 
 Running init.sh to create folders and main files
@@ -44,5 +44,3 @@ cd project
 docker build -t camel-hl7-simulator .
 docker run -v $(pwd)/output:/app/output camel-hl7-simulator
 ```
-
-
