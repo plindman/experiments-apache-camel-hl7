@@ -1,5 +1,8 @@
-/project/output/*                                       # Ignore everything in the output/ folder
-!/project/output/observation-hl7v2-20241004162700.hl7   # Except the the sample hl7 file
-!/project/output/observation-fhir-20241004162701.json   # Except the the sample hl7 file
+# Ignore everything in the output/ folder
+/project/output/*
+
+# Except the the sample hl7 files
+!/project/output/observation-hl7v2-20241004162700.hl7   
+!/project/output/observation-fhir-20241004162701.json
 
 temp/
