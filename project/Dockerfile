@@ -20,4 +20,4 @@ ENV SCHEDULER_ENABLED=false
 # Expose the port defined by APP_PORT
 EXPOSE ${APP_PORT}
 
-CMD ["sh", "-c", "java -jar app.jar --app.port=${APP_PORT} --scheduler.enabled=${SCHEDULER_ENABLED}"]
+CMD ["sh", "-c", "java -jar app.jar"]
