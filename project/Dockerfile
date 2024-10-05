@@ -8,7 +8,7 @@ RUN mvn dependency:go-offline -B
 COPY src ./src
 RUN mvn clean package
 
-FROM openjdk:11-jre-slim as run
+FROM openjdk:11-jre-slim AS run
 WORKDIR /app
 COPY --from=build /app/target/camel-hl7-simulator-1.0-SNAPSHOT.jar ./app.jar
 COPY --from=build /app/target/lib ./lib
