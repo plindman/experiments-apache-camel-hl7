@@ -27,12 +27,13 @@ project/
 │           └── application.properties
 ├── pom.xml
 └── Dockerfile
+- docker-compose.yml # Use this to run the experiment
 - init.sh # Run once to create all the folders and files
 ```
 
 ## Code
 
-The most interesting file is [HL7Converter.java](src/main/java/com/example/HL7Converter.java). It has the code to convert the value to HL7 V2 message.
+The most interesting files are [HL7V2Converter.java](src/main/java/com/example/HL7V2Converter.java) and [HL7FHIRConverter.java](src/main/java/com/example/HL7FHIRConverter.java). They have the code to convert the value to HL7 V2 / FHIR messages.
 
 ### Output sample
 
@@ -67,7 +68,29 @@ OBX|1|NM|8310-5^Body temperature^LN||37.2|Cel^Celsius||||||||20241004083550
 }
 ```
 
-## Build and run the experiment
+## Run the experiment
+
+```bash
+# Just run docker-compose in the root folder
+
+# Build and start the application
+docker-compose up
+
+# Curling messages to the endpoints
+curl http://localhost:8080/api/trigger/hl7v2
+curl http://localhost:8080/api/trigger/fhir
+curl http://localhost:8080/api/toggle-scheduler
+
+```
+## Advanced commands
+
+```bash
+# Just build the application
+docker-compose build
+
+# Just run the application
+docker-compose up --no-build
+```
 
 ```bash
 # Run init.sh once to make sure you have all folders and main files
@@ -76,22 +99,9 @@ chmod +x init.sh
 ```
 
 ```bash
-# Just run docker-compose in the root folder
-# Run init.sh once if needed to make sure you have all folders and main files
-
-# Build and start the application
-docker-compose up
-
-# To build the application
-docker-compose build
-
-# Just run the application
-docker-compose up --no-build
-```
-
-```bash
-# Run just the container 
+# Container commands
 cd project
 docker build -t camel-hl7-simulator .
 docker run -v $(pwd)/output:/app/output camel-hl7-simulator
 ```
+
