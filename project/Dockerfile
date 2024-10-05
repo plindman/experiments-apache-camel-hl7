@@ -12,4 +12,12 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 COPY --from=build /app/target/camel-hl7-simulator-1.0-SNAPSHOT.jar ./app.jar
 COPY --from=build /app/target/lib ./lib
+
+# Set default values for environment variables
+ENV APP_PORT=8080
+ENV SCHEDULER_ENABLED=false
+
+# Expose the port defined by APP_PORT
+EXPOSE ${APP_PORT}
+
 CMD ["java", "-jar", "app.jar"]
