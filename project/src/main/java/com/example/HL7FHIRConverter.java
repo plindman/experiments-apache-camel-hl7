@@ -29,6 +29,6 @@ public class HL7FHIRConverter {
 
         // Convert FHIR resource to JSON
         String fhirObservationJson = ctx.newJsonParser().setPrettyPrint(true).encodeResourceToString(observation);
-        return fhirObservationJson;
+        return fhirObservationJson + "\n";
     }
 }

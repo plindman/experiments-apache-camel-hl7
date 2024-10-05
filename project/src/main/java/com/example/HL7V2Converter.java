@@ -41,6 +41,6 @@ public class HL7V2Converter {
 
         // Generate the HL7 message
         Parser parser = context.getPipeParser();
-        return parser.encode(message);
+        return parser.encode(message) + "\n";  
     }
 }

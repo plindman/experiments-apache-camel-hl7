@@ -68,7 +68,7 @@ public class ObservationSimulator extends RouteBuilder {
                 } else {
                     context.getRouteController().stopRoute(SCHEDULER_ROUTE_ID);
                 }
-                exchange.getMessage().setBody("Scheduler is now " + (isSchedulerEnabled ? "enabled" : "disabled"));
+                exchange.getMessage().setBody("Scheduler is now " + (isSchedulerEnabled ? "enabled" : "disabled\n"));
             });
 
         // Common processing route
