@@ -6,7 +6,7 @@ services:
       target: run
     image: camel-hl7-simulator:latest
     ports:
-      - "${EXTERNAL_PORT:-8081}:${APP_PORT:-8080}"
+      - "${EXTERNAL_PORT:-8080}:${APP_PORT:-8080}"
     environment:
       - APP_PORT=${APP_PORT:-8080}
       - SCHEDULER_ENABLED=${SCHEDULER_ENABLED:-false}
