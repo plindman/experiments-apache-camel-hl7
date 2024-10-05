@@ -8,7 +8,7 @@ RUN mvn dependency:go-offline -B
 COPY src ./src
 RUN mvn clean package
 
-FROM openjdk:11-jre-slim
+FROM openjdk:11-jre-slim as run
 WORKDIR /app
 COPY --from=build /app/target/camel-hl7-simulator-1.0-SNAPSHOT.jar ./app.jar
 COPY --from=build /app/target/lib ./lib
@@ -20,4 +20,4 @@ ENV SCHEDULER_ENABLED=false
 # Expose the port defined by APP_PORT
 EXPOSE ${APP_PORT}
 
-CMD ["java", "-jar", "app.jar"]
+CMD ["sh", "-c", "java -jar app.jar --app.port=${APP_PORT} --scheduler.enabled=${SCHEDULER_ENABLED}"]
