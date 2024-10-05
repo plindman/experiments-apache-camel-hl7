@@ -76,8 +76,22 @@ chmod +x init.sh
 ```
 
 ```bash
+# Just run docker-compose in the root folder
+# Run init.sh once if needed to make sure you have all folders and main files
+
+# Build and start the application
+docker-compose up
+
+# To build the application
+docker-compose build
+
+# Just run the application
+docker-compose up --no-build
+```
+
+```bash
+# Run just the container 
 cd project
 docker build -t camel-hl7-simulator .
 docker run -v $(pwd)/output:/app/output camel-hl7-simulator
 ```
-
