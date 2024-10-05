@@ -11,6 +11,8 @@
     <properties>
         <camel.version>3.18.0</camel.version>
         <hapi.version>2.3</hapi.version>
+        <hapi.fhir.version>7.4.0</hapi.fhir.version>
+        <slf4j.version>2.0.16</slf4j.version>
         <main.class>com.example.ObservationSimulator</main.class>
     </properties>
 
@@ -41,9 +43,14 @@
             <version>${camel.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-servlet</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.36</version>
+            <version>${slf4j.version}</version>
         </dependency>
         <!-- Add HAPI HL7 library -->
         <dependency>
@@ -59,12 +66,12 @@
         <dependency>
             <groupId>ca.uhn.hapi.fhir</groupId>
             <artifactId>hapi-fhir-base</artifactId>
-            <version>5.7.0</version>
+            <version>${hapi.fhir.version}</version>
         </dependency>        
         <dependency>
             <groupId>ca.uhn.hapi.fhir</groupId>
             <artifactId>hapi-fhir-structures-r4</artifactId>
-            <version>5.7.0</version>
+            <version>${hapi.fhir.version}</version>
         </dependency>
     </dependencies>
 
