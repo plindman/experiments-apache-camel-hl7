@@ -124,7 +124,7 @@ public class ObservationSimulator extends RouteBuilder {
     private void validateTemperature(double temp) {
         if (temp < MIN_TEMP || temp > MAX_TEMP) {
             throw new IllegalArgumentException(
-                String.format("Body temperature must be between %.1f°C and %.1f°C", MIN_TEMP, MAX_TEMP)
+                String.format("Body temperature must be between %.1f°C and %.1f°C\n", MIN_TEMP, MAX_TEMP)
             );
         }
     }
