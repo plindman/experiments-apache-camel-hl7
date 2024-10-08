@@ -71,17 +71,25 @@ OBX|1|NM|8310-5^Body temperature^LN||37.2|Cel^Celsius||||||||20241004083550
 ## Run the experiment
 
 ```bash
-# Just run docker-compose in the root folder
-
-# Build and start the application
+# Just run docker-compose in the root folder. Builds and starts the application
 docker-compose up
 
-# Curling messages to the endpoints
-curl http://localhost:8080/api/trigger/hl7v2
-curl http://localhost:8080/api/trigger/fhir
-curl http://localhost:8080/api/toggle-scheduler
+# Then you can curl messages to the endpoints
 
+# Random value, valid valid, invalid value
+curl http://localhost:8080/api/trigger/hl7v2
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "bodyTemp=37.5" http://localhost:8080/api/trigger/hl7v2
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "bodyTemp=43.0" http://localhost:8080/api/trigger/hl7v2
+
+# Random value, valid valid, invalid value
+curl http://localhost:8080/api/trigger/fhir
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "bodyTemp=37.5" http://localhost:8080/api/trigger/fhir
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "bodyTemp=43.0" http://localhost:8080/api/trigger/fhir
+
+# Toggle scheduler
+curl http://localhost:8080/api/toggle-scheduler
 ```
+
 ## Advanced commands
 
 ```bash
