@@ -3,7 +3,6 @@ services:
     build:
       context: ./project
       dockerfile: Dockerfile
-      target: run
     image: camel-hl7-simulator:latest
     ports:
       - "${EXTERNAL_PORT:-8080}:${APP_PORT:-8080}"
@@ -12,19 +11,9 @@ services:
       - SCHEDULER_ENABLED=${SCHEDULER_ENABLED:-false}
     volumes:
       - ./project/output:/app/output
-    depends_on:
-      - build
-
-  build:
-    build:
-      context: ./project
-      dockerfile: Dockerfile
-      target: build
-    image: camel-hl7-simulator-build:latest
-    volumes:
-      - ./project/target:/app/target
-    command: mvn clean package
+    networks:
+      - camel-hl7-network
 
 networks:
-  default:
-    name: camel-hl7-network
+  camel-hl7-network:
+    driver: bridge
