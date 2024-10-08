@@ -22,7 +22,8 @@ project/
 │       │   └── com/
 │       │       └── example/
 │       │           ├── ObservationSimulator.java 
-│       │           └── HL7Converter.java # Sample data converter
+│       │           └── HL7FHIRConverter.java # Data to HL7V2 converter
+│       │           └── HL7V2Converter.java # Data to FHIR converter
 │       └── resources/
 │           └── application.properties
 ├── pom.xml
