@@ -1,4 +1,4 @@
-package com.example;
+package com.example.converters;
 
 import ca.uhn.hl7v2.model.v24.message.ORU_R01;
 import ca.uhn.hl7v2.model.v24.segment.OBX;

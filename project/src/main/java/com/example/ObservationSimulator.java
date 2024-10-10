@@ -3,6 +3,12 @@ package com.example;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.main.Main;
 
+import com.example.config.AppConfig;
+import com.example.server.JettyServer;
+import com.example.routes.ObservationRoutes;
+import com.example.routes.HL7V2Routes;
+import com.example.routes.FHIRRoutes;
+
 public class ObservationSimulator {
 
     public static void main(String[] args) throws Exception {

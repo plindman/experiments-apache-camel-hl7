@@ -13,6 +13,7 @@
         <hapi.version>2.3</hapi.version>
         <hapi.fhir.version>7.4.0</hapi.fhir.version>
         <slf4j.version>1.7.36</slf4j.version>
+        <jetty-servlet.version>9.4.56.v20240826</jetty-servlet.version>
         <main.class>com.example.ObservationSimulator</main.class>
     </properties>
 
@@ -47,6 +48,11 @@
             <artifactId>camel-servlet</artifactId>
             <version>${camel.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>${jetty-servlet.version}</version>
+        </dependency>        
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>

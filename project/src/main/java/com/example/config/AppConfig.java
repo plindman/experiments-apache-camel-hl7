@@ -1,4 +1,4 @@
-package com.example;
+package com.example.config;
 
 public class AppConfig {
     private static final String DEFAULT_PORT = "8080";

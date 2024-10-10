@@ -1,4 +1,4 @@
-package com.example;
+package com.example.converters;
 
 import ca.uhn.fhir.context.FhirContext;
 import org.hl7.fhir.r4.model.Observation;

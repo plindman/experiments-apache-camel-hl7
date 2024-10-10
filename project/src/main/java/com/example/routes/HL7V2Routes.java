@@ -1,6 +1,8 @@
-package com.example;
+package com.example.routes;
 
 import org.apache.camel.builder.RouteBuilder;
+
+import com.example.converters.HL7V2Converter;
 
 public class HL7V2Routes extends RouteBuilder {
     @Override

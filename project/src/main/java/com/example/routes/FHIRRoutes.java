@@ -1,6 +1,8 @@
-package com.example;
+package com.example.routes;
 
 import org.apache.camel.builder.RouteBuilder;
+
+import com.example.converters.HL7FHIRConverter;
 
 public class FHIRRoutes extends RouteBuilder {
     @Override

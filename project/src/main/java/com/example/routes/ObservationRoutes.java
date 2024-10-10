@@ -1,7 +1,9 @@
-package com.example;
+package com.example.routes;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.Exchange;
+
+import com.example.config.AppConfig;
 
 public class ObservationRoutes extends RouteBuilder {
     private static final String SCHEDULER_ROUTE_ID = "schedulerRoute";
