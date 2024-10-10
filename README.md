@@ -21,9 +21,13 @@ project/
 │       ├── java/
 │       │   └── com/
 │       │       └── example/
-│       │           ├── ObservationSimulator.java 
-│       │           └── HL7FHIRConverter.java # Data to HL7V2 converter
-│       │           └── HL7V2Converter.java # Data to FHIR converter
+│       │           ├── ObservationSimulator.java # Main entry point to application
+|       |           └── config # AppConfig
+|       |           └── server # Houses server-specific classes
+|       |           └── converters #  Contains classes responsible for data conversion.
+│       │           |   └── HL7FHIRConverter.java # Data to HL7V2 converter
+│       │           |   └── HL7V2Converter.java # Data to FHIR converter
+|       |           └── routes # Groups all routing-related classes.
 │       └── resources/
 │           └── application.properties
 ├── pom.xml
