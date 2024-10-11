@@ -1,13 +1,6 @@
 # Apache-Camel HL7 message experiment
 
-Simple example of how to use Apache Camel to simulate reading data, creating an HL7v2 MSH (Message Header Segment) message, and writing it out. This example uses Camel's HL7 component and routes to handle data transformations.
-
-Requirements:
-- Apache Camel
-- Camel HL7 Component (camel-hl7)
-- Camel Timer Component (to simulate scheduled reads)
-- Camel Log Component (for output)
-- Docker (optional for deployment)
+Simple example of how to use Apache Camel to simulate reading data, creating an HL7v2 MSH (Message Header Segment) and FHIR R4 messages, and writing it out. This example uses Camel's HL7 components and routes to handle data transformations.
 
 ### Project Folder Structure
 
