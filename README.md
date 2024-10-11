@@ -1,4 +1,4 @@
-# Apache-Camel HL7 V2 message experiment
+# Apache-Camel HL7 message experiment
 
 Simple example of how to use Apache Camel to simulate reading data, creating an HL7v2 MSH (Message Header Segment) message, and writing it out. This example uses Camel's HL7 component and routes to handle data transformations.
 
